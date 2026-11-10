@@ -1,0 +1,294 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+
+/* PINE: paper figures and their captions. */
+.paper-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+.paper-figure-block {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.figure-caption {
+  color: #4a4a4a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.section h3.title {
+  margin-top: 2.5rem;
+}
+
+.result-pane .figure-caption {
+  margin-bottom: 1rem;
+}
+
+/* PINE: comparison with baselines, two panels as on the MoGe-3 page. */
+.compare-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.compare-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #EEF2F7;
+}
+
+.compare-pills button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  background: transparent;
+  color: #374151;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.compare-pills.is-small button {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.compare-pills button.is-active {
+  background: #2B64A0;
+  color: #fff;
+}
+
+.compare-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #F4F4F2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.compare-panel img {
+  display: block;
+  width: 100%;
+}
+
+.compare-cloud {
+  display: none;
+  aspect-ratio: 1 / 1;
+  cursor: grab;
+  touch-action: none;
+}
+
+.compare-cloud canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.compare-panel.is-3d img {
+  display: none;
+}
+
+.compare-panel.is-3d .compare-cloud {
+  display: block;
+}
+
+.compare-loading {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  color: #6B7280;
+  font-size: 0.8rem;
+}
+
+.compare-panel.is-loading .compare-loading {
+  display: block;
+}
+
+.compare-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.compare-tag.is-ours {
+  background: #2B64A0;
+  color: #fff;
+}
+
+.compare-tag select {
+  border: 0;
+  background: transparent;
+  color: #111;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.compare-tag .is-best {
+  font-weight: bold;
+}
+
+.compare-thumbs {
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+  margin: 1.25rem auto 0.75rem;
+}
+
+.compare-thumbs img {
+  height: 84px;
+  width: auto;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.compare-thumbs img:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.compare-thumbs img.is-active {
+  border-color: #2B64A0;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .compare-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .compare-thumbs img {
+    height: 56px;
+  }
+}
