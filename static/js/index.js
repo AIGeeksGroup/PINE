@@ -16,7 +16,7 @@ const NOTE = {
 };
 const ERROR_NOTE = 'One colour scale per sample: blue is a low error and red a high one; black has no ground truth.';
 const FOOT = 1.9;           // point size in pixels of the input image, for clouds thinned to 100k points
-const BACKGROUND = 0xf4f4f2;
+const BACKGROUND = 0xf3f7fb;  // --blue-50 of the page theme
 
 const state = { task: 'point', sample: 0, other: null, mode: 'pred' };
 const $ = (id) => document.getElementById(id);
