@@ -1,0 +1,123 @@
+PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model
+======================================================================
+
+This repository is released under the Apache License 2.0 (see the LICENSE file
+at the repository root).
+
+It is derived from PointDiT (https://github.com/google-research/pointdit),
+Copyright 2026 Google LLC, Apache License 2.0. The files that keep the Google
+copyright header come from PointDiT, with changes; the notices below are those
+of PointDiT, kept in full.
+
+The instance loss in loss.py and the point-prompt protocol in
+metrics/instance_prompt.py follow the released training and evaluation code of
+gen2seg (https://github.com/UCDvision/gen2seg).
+
+It also contains code derived from the third-party projects listed below, which
+remain subject to their own licences. The notices reproduced here satisfy those
+licences' attribution requirements.
+
+
+-----------------------------------------------------------------------
+1. JiT -- https://github.com/LTH14/JiT
+   MIT License, Copyright (c) 2025 Tianhong Li
+-----------------------------------------------------------------------
+
+This project began as a fork of JiT, which contributed the pixel-space diffusion
+transformer backbone, the training loop and the command-line interface. Files
+substantially derived from it: main.py, engine.py, model.py,
+denoiser.py, util/misc.py, util/lr_sched.py, util/model_util.py.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+
+-----------------------------------------------------------------------
+2. MoGe -- https://github.com/microsoft/MoGe
+   MIT License, Copyright (c) Microsoft Corporation
+-----------------------------------------------------------------------
+
+The evaluation protocol and the affine alignment code are adapted from MoGe:
+metrics/alignment.py, metrics/compute_metrics.py, and the depth I/O helper
+`read_depth` in dataloader/eval_depth.py. The pre-processed evaluation datasets
+are also distributed by the MoGe authors. MIT terms as reproduced in section 1
+above, with copyright held by Microsoft Corporation.
+
+
+-----------------------------------------------------------------------
+3. utils3d -- https://github.com/EasternJournalist/utils3d
+   MIT License, Copyright (c) Ruicheng Wang
+-----------------------------------------------------------------------
+
+The mask-aware resizing and tensor helpers used by the metrics are adapted from
+utils3d: metrics/masked_resize.py, metrics/utils.py. MIT
+terms as reproduced in section 1 above.
+
+
+-----------------------------------------------------------------------
+4. Depth Pro -- https://github.com/apple/ml-depth-pro
+   Copyright (C) 2024 Apple Inc. All Rights Reserved.
+-----------------------------------------------------------------------
+
+metrics/boundary_metrics.py implements the scale-invariant boundary F1 metric and
+is vendored from Depth Pro.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer.
+
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+
+  3. Neither the name of the copyright holder nor the names of its contributors
+     may be used to endorse or promote products derived from this software
+     without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+-----------------------------------------------------------------------
+5. SiT and Lightning-DiT
+   https://github.com/willisma/SiT (MIT), https://github.com/hustvl/LightningDiT
+-----------------------------------------------------------------------
+
+Transformer design details in model.py follow SiT and Lightning-DiT, as
+recorded in that file's header. Reached via the JiT fork in section 1.
+
+
+-----------------------------------------------------------------------
+Note on DINOv3
+-----------------------------------------------------------------------
+
+PINE conditions on a frozen DINOv3 encoder. No DINOv3 code or weights are
+vendored in this directory: the encoder is loaded from a user-supplied local
+checkout of https://github.com/facebookresearch/dinov3, and its LVD-1689M
+weights are access-gated by Meta and must be obtained separately under the
+DINOv3 License Agreement. See README.md for setup.

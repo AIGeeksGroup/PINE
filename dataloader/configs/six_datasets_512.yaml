@@ -1,0 +1,104 @@
+# Copyright 2026 Zeyu Ren. Licensed under the Apache License, Version 2.0.
+# The training mixture of the released PINE models (see DATASETS.md).
+# - Hypersim, Virtual KITTI 2, UrbanSyn: point map, normals and instances.
+# - Structured3D: geometry only (instance_loss false).
+# - EntitySeg, ADE20K: real images with instance labels only; together 0.4 of the samples.
+# The sky of the outdoor sets (depth above max_depth) is supervised in all three streams.
+finetune_highres_mode: true
+finetune_target_height: 512
+finetune_target_crop: 512
+img_size: 512
+datasets:
+  - name: hypersim_h5
+    load_instance: true
+    instance_counts: datasets/train/hypersim_instance_counts.json
+    instance_min_scene_objects: 10
+    data_path: datasets/train/hypersim
+    max_depth: 30.0
+    weight: 0.198
+    handle_sky: false
+    use_sky_dome: false
+    sky_loss_weight: 0.0
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
+  - name: vkitti_h5
+    load_instance: true
+    data_path: datasets/train/vkitti2
+    max_depth: 100.0
+    weight: 0.150
+    handle_sky: true
+    use_sky_dome: true
+    sky_loss_weight: 0.01
+    sky_far_plane_value: 3.0
+    sky_normal_dome: true
+    sky_instance_background: true
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
+  - name: urbansyn_h5
+    load_instance: true
+    data_path: datasets/train/urbansyn_h5
+    max_depth: 100.0
+    weight: 0.056
+    handle_sky: true
+    use_sky_dome: true
+    sky_loss_weight: 0.01
+    sky_far_plane_value: 3.0
+    sky_normal_dome: true
+    sky_instance_background: true
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
+  - name: structured3d_h5
+    load_instance: true
+    instance_loss: false
+    data_path: datasets/train/structured3d_h5
+    max_depth: 30.0
+    weight: 0.196
+    handle_sky: false
+    use_sky_dome: false
+    sky_loss_weight: 0.0
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
+  - name: entityseg_h5
+    task: instance_segmentation
+    data_path: datasets/train/entityseg_things_h5
+    weight: 0.108
+    instance_background_supervised: true
+    # the photometric augmentation of the geometry sets (main.py --more_img_aug --stronger_img_aug)
+    augmentation:
+      resize_probability: 0.5
+      flip_probability: 0.5
+      color_jitter: {brightness: 0.1, contrast: 0.1, saturation: 0.1, hue: 0.05}
+      appearance_probability: 0.2
+      blur_kernel: 5
+      blur_sigma: [0.1, 2.0]
+      jpeg_quality: [40, 100]
+  - name: ade20k_h5
+    task: instance_segmentation
+    data_path: datasets/train/ade20k_h5
+    weight: 0.292
+    instance_background_supervised: true
+    # the photometric augmentation of the geometry sets (main.py --more_img_aug --stronger_img_aug)
+    augmentation:
+      resize_probability: 0.5
+      flip_probability: 0.5
+      color_jitter: {brightness: 0.1, contrast: 0.1, saturation: 0.1, hue: 0.05}
+      appearance_probability: 0.2
+      blur_kernel: 5
+      blur_sigma: [0.1, 2.0]
+      jpeg_quality: [40, 100]

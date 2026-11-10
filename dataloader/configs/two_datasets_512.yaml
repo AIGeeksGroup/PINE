@@ -1,0 +1,41 @@
+# Copyright 2026 Zeyu Ren. Licensed under the Apache License, Version 2.0.
+# Hypersim and Virtual KITTI 2 only, weighted by their sample counts: the training set of the ablations of the paper.
+# The dataset settings are those of six_datasets_512.yaml.
+finetune_highres_mode: true
+finetune_target_height: 512
+finetune_target_crop: 512
+img_size: 512
+datasets:
+  - name: hypersim_h5
+    load_instance: true
+    instance_counts: datasets/train/hypersim_instance_counts.json
+    instance_min_scene_objects: 10
+    data_path: datasets/train/hypersim
+    max_depth: 30.0
+    weight: 0.6575342465753424
+    handle_sky: false
+    use_sky_dome: false
+    sky_loss_weight: 0.0
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
+  - name: vkitti_h5
+    load_instance: true
+    data_path: datasets/train/vkitti2
+    max_depth: 100.0
+    weight: 0.3424657534246575
+    handle_sky: true
+    use_sky_dome: true
+    sky_loss_weight: 0.01
+    sky_far_plane_value: 3.0
+    sky_normal_dome: true
+    sky_instance_background: true
+    remove_outliers: true
+    outlier_threshold: 3.0
+    compute_scale_factor_only_valid: true
+    compute_scale_factor_use_std: false
+    clamp_max_depth: null
+    num_test_scenes: 0
