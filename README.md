@@ -1,14 +1,14 @@
 <p align="center">
   <h1 align="center">PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model</h1>
   <p align="center">
-    Zeyu Ren<sup>1</sup> &middot;
+    <a href="https://zephyr0609.github.io/">Zeyu Ren</a><sup>1</sup> &middot;
     Jie Ni<sup>2*</sup> &middot;
     Jiahao Wei<sup>3</sup> &middot;
-    Hao Tang<sup>4</sup>
+    <a href="https://ha0tang.github.io/">Hao Tang</a><sup>4</sup>
     <br>
     Yongtai Liu<sup>5</sup> &middot;
-    Zeyu Zhang<sup>4&dagger;</sup> &middot;
-    Rui Qian<sup>3*</sup>
+    <a href="https://steve-zeyu-zhang.github.io/">Zeyu Zhang</a><sup>4&dagger;</sup> &middot;
+    <a href="https://scholar.google.com/citations?hl=zh-CN&user=z3sAW3oAAAAJ">Rui Qian</a><sup>3*</sup>
   </p>
   <p align="center">
     <sup>1</sup>The University of Melbourne &nbsp; <sup>2</sup>Southeast University &nbsp; <sup>3</sup>Fudan University &nbsp; <sup>4</sup>Peking University &nbsp; <sup>5</sup>Hanyang University
