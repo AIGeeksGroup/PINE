@@ -18,14 +18,21 @@ PINE-B, PINE-L and PINE-H are trained at `512x512` on the six-dataset mixture
 [scripts/train_h_512.sh](scripts/train_h_512.sh). Rel<sup>p</sup> is the point map error on the seven evaluation
 datasets with one sampling step, with and without intrinsics.
 
-| Model  | DINOv3 Encoder | Rel<sup>p</sup> with K | Rel<sup>p</sup> without K |
-| ------ | :------------: | :--------------------: | :-----------------------: |
-| PINE-B |    ViT-B/16    |          4.69          |           5.62            |
-| PINE-L |    ViT-L/16    |          3.76          |           4.70            |
-| PINE-H |   ViT-H+/16    |          3.33          |           4.16            |
+| Model  | DINOv3 Encoder | Rel<sup>p</sup> with K | Rel<sup>p</sup> without K | Download |
+| ------ | :------------: | :--------------------: | :-----------------------: | :------: |
+| PINE-B |    ViT-B/16    |          4.69          |           5.62            | [pine-b-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-b-512.pth) (0.6 GB) |
+| PINE-L |    ViT-L/16    |          3.76          |           4.70            | [pine-l-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-l-512.pth) (2.0 GB) |
+| PINE-H |   ViT-H+/16    |          3.33          |           4.16            | [pine-h-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-h-512.pth) (4.0 GB) |
 
-A checkpoint is the `checkpoint-last.pth` that training writes: the weights (`model`), their EMA (`model_ema1`, which
-evaluation and the demo use) and the training arguments (`args`).
+All weights are hosted on [Hugging Face](https://huggingface.co/zeyuren2002/PINE):
+
+```bash
+pip install -U "huggingface_hub[cli]"
+hf download zeyuren2002/PINE pine-l-512.pth --local-dir pretrained
+```
+
+A released file holds the EMA weights of the last training epoch and the arguments that define the model. The
+`checkpoint-last.pth` that training writes loads in the same way; it also holds the raw weights and the optimizer.
 
 The PINE weights are for non-commercial use only, under the
 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.

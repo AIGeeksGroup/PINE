@@ -15,7 +15,7 @@
 cd "$(dirname "$0")/.."
 
 IMAGE_DIR=${IMAGE_DIR:-assets/demo}
-CHECKPOINT=${CHECKPOINT:-checkpoints/pine-b-512/checkpoint-last.pth}
+CHECKPOINT=${CHECKPOINT:-pretrained/pine-b-512.pth}
 OUTPUT_DIR=${OUTPUT_DIR:-checkpoints/pine-b-512}
 # The frozen DINOv3 encoder is not part of the checkpoint: its weights are gated, so
 # they are downloaded separately into pretrained/dinov3/ (see MODELS.md).

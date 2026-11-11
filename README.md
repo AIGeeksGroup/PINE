@@ -17,7 +17,7 @@
     <sup>*</sup>Corresponding authors &nbsp; <sup>&dagger;</sup>Project lead
   </p>
   <h3 align="center">
-    <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
+    <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/zeyuren2002/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
   </h3>
 </p>
 
@@ -65,12 +65,13 @@ see [MODELS.md](MODELS.md) for the file list.
 
 ## Model Zoo
 
-Pre-trained models are listed in the [Model Zoo](MODELS.md): PINE-B / L / H at `512×512`.
+Pre-trained models are available in the [Model Zoo](MODELS.md): PINE-B / L / H at `512×512`. All weights are hosted on
+[Hugging Face](https://huggingface.co/zeyuren2002/PINE).
 
 Download the weights and place (or symlink) them in the `pretrained` directory:
 
 ```bash
-ln -s YOUR_MODEL_PATH pretrained
+hf download zeyuren2002/PINE pine-l-512.pth --local-dir pretrained
 ```
 
 The checkpoints ship without the frozen DINOv3 encoder, which is downloaded separately (see
@@ -78,10 +79,10 @@ The checkpoints ship without the frozen DINOv3 encoder, which is downloaded sepa
 
 ## Demo
 
-Check [scripts/demo_l_512.sh](scripts/demo_l_512.sh) for running our pre-trained models on your own images, with no ground truth and no camera intrinsics required. Set `IMAGE_DIR` and `CHECKPOINT` at the top of the script, or pass them as environment variables:
+Check [scripts/demo_l_512.sh](scripts/demo_l_512.sh) for running our pre-trained models on your own images, with no ground truth and no camera intrinsics required. Set `IMAGE_DIR` at the top of the script, or pass it as an environment variable:
 
 ```bash
-IMAGE_DIR=assets/demo CHECKPOINT=pretrained/pine-l-512.pth bash scripts/demo_l_512.sh
+IMAGE_DIR=assets/demo bash scripts/demo_l_512.sh
 ```
 
 Any `.jpg`/`.png` files work, and nested folders are fine, since the loader globs recursively. For each image `name.png` the script writes `name_depth.png`, `name_normal.png`, `name_instance.png` and `name_pointcloud.ply`.

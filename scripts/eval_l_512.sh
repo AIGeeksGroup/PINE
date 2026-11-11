@@ -11,7 +11,7 @@
 
 cd "$(dirname "$0")/.."
 
-CHECKPOINT=${CHECKPOINT:-checkpoints/pine-l-512/checkpoint-last.pth}
+CHECKPOINT=${CHECKPOINT:-pretrained/pine-l-512.pth}
 OUTPUT_DIR=${OUTPUT_DIR:-checkpoints/pine-l-512/eval}
 EVAL_DATA=datasets/eval
 # The frozen DINOv3 encoder is not part of the checkpoint: its weights are gated, so
