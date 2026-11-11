@@ -83,6 +83,42 @@ a:hover {
   display: inline-block;
 }
 
+.publication-authors {
+  margin-top: 1.25rem;
+}
+
+.publication-authors .author-block {
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+.publication-authors sup,
+.publication-affiliations sup,
+.publication-notes sup {
+  color: var(--blue-600);
+  font-size: 0.68em;
+}
+
+.publication-affiliations {
+  margin-top: 0.4rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.publication-affiliations .author-block {
+  margin: 0 0.55rem;
+}
+
+.publication-notes {
+  margin-top: 0.3rem;
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.publication-notes .author-block {
+  margin: 0 0.5rem;
+}
+
 .link-block a {
   margin-top: 5px;
   margin-bottom: 5px;
