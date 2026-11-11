@@ -72,10 +72,11 @@ a:hover {
 }
 
 .publication-authors a {
-  color: var(--blue-600) !important;
+  color: var(--blue-700) !important;
 }
 
 .publication-authors a:hover {
+  color: var(--blue-600) !important;
   text-decoration: underline;
 }
 
