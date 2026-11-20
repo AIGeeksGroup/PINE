@@ -98,8 +98,9 @@
              alt="PINE predicts the point map, the surface normals and the instance map of an image.">
       </a>
       <h2 class="subtitle has-text-centered">
-        <b>PINE</b> is a one-step omni Diffusion Transformer that predicts the point map, the surface normals and
-        the instance map of an image in one forward pass.
+        <b>PINE</b> predicts the point map, the normals and the instance map of an image in one forward pass.
+        With limited supervision, it achieves state-of-the-art point maps and runs 5.7&times; faster than MoGe-3
+        combined with SAM.
       </h2>
     </div>
   </div>
@@ -120,8 +121,8 @@
             PINE treats each map as a token stream, and a stream mask decides which streams interact.
             A camera-aware ray encoding positions every token by its camera ray rather than its pixel.
             Grounding attention adds the affinity of pretrained DINOv3 features to the attention logits.
-            Trained on only 139K synthetic images for geometry, PINE achieves state-of-the-art point maps both with and
-            without intrinsics and the best average rank on surface normals.
+            Trained on only 139K synthetic images for geometry, PINE achieves state-of-the-art point maps whether or
+            not intrinsics are given and the best average rank on surface normals.
             It also exceeds SAM on large objects with less than <b>1%</b> of its training images, and it predicts all
             three maps <b>5.7&times; faster</b> than MoGe-3 combined with SAM.
           </p>
@@ -140,7 +141,11 @@
       </a>
       <figcaption class="figure-caption">
         <b>Overview of PINE.</b>
-        PINE treats each map as a token stream, and a stream mask decides which streams interact.
+        The point, normal and instance streams embed their maps with the frozen DINOv3 features and pass through
+        DiT blocks as one sequence.
+        In attention, the stream mask decides which streams interact, ray positions encode the intrinsics and
+        grounding attention adds the DINOv3 affinity.
+        Each stream decodes its own map, and one step at inference gives all three maps.
       </figcaption>
     </figure>
 
@@ -151,8 +156,9 @@
           <p>
             A point map back-projects every pixel along its camera ray, so the intrinsics fix the direction along
             which each depth is placed.
-            PINE therefore indexes every token by the ray through its patch.
-            Without intrinsics, PINE uses a default camera and recovers the focal length from its own point map.
+            PINE therefore positions every token by the ray of its patch instead of its pixel.
+            Without intrinsics, PINE uses a default camera, and a learned embedding marks the missing intrinsics.
+            One model serves images whether or not intrinsics are given.
           </p>
         </div>
       </div>
@@ -162,9 +168,11 @@
             <img class="paper-figure" src="./static/images/fig/ray_encoding.jpg" alt="Camera-aware ray encoding.">
           </a>
           <figcaption class="figure-caption">
-            (a) Token <i>j</i> is placed where its ray meets the image plane of a reference camera.
-            (b) With patch indices, a full view and a zoomed crop give the point at the red cross two positions.
-            (c) With ray positions, the crop lands inside the full view and the point gets one position.
+            (a) The position of token <i>j</i> is the point where its ray meets the image plane of a reference
+            camera.
+            (b) With ray positions, a zoomed crop lands inside the full view, and the point at the red cross keeps
+            one position.
+            (c) With patch indices, the crop has its own grid and gives the same point a second position.
           </figcaption>
         </figure>
       </div>
@@ -173,8 +181,8 @@
     <h3 class="title is-4">Grounding attention</h3>
     <div class="content has-text-justified">
       <p>
-        A normal is constant over a planar surface, and an instance label is constant over an object, so both maps
-        depend on which pixels belong together.
+        A normal is constant over a planar surface, and an instance label is constant over an object.
+        Both maps thus depend on how pixels group into surfaces and objects.
         PINE therefore writes the affinity of DINOv3 features into the attention logits as a bias.
       </p>
     </div>
@@ -183,9 +191,9 @@
         <img class="paper-figure" src="./static/images/fig/grounding_attention.jpg" alt="Grounding attention.">
       </a>
       <figcaption class="figure-caption">
-        Each row shows an image and the attention of the query patch at the red cross, without and with the
-        grounding bias.
-        The grounding bias keeps the attention on the object of the query patch.
+        Each row shows an image and the attention of the query patch at the red cross, without and with grounding
+        attention.
+        Grounding attention keeps the attention on the region of the query patch.
       </figcaption>
     </figure>
   </div>
@@ -198,6 +206,11 @@
       <a href="./static/images/fig/qualitative.jpg" target="_blank">
         <img class="paper-figure" src="./static/images/fig/qualitative.jpg" alt="Qualitative results.">
       </a>
+      <figcaption class="figure-caption">
+        <b>Qualitative comparison on point maps, depth, normals and instances.</b>
+        The red dot marks the point prompt of each instance.
+        Arrows highlight the regions we significantly improved.
+      </figcaption>
     </figure>
 
     <h3 class="title is-4">Efficiency</h3>
@@ -206,9 +219,10 @@
         <div class="content has-text-justified">
           <p>
             PINE-H has the best average rank over the three maps and runs 5.7 times faster than MoGe-3 combined with
-            SAM, which ranks lower.
+            SAM.
             PINE-L matches the rank of UniDepthV2, Marigold V2 and SAM combined and runs 11 times faster.
-            PINE-H even runs 3.1 times faster than SAM alone, while it also predicts the point map and the normals.
+            PINE-H runs 3.1 times faster than SAM alone, while it also predicts the point map and the normals.
+            Marigold V2 with SAM needs 22.3B parameters and 1399&nbsp;ms, while PINE-H needs 1.85B and 137&nbsp;ms.
           </p>
         </div>
       </div>
@@ -217,11 +231,41 @@
           <a href="./static/images/fig/rank.png" target="_blank">
             <img class="paper-figure" src="./static/images/fig/rank.png" alt="Average rank against latency.">
           </a>
+          <figcaption class="figure-caption">
+            Average rank against latency for the three maps.
+            Latency is measured on one A100 at 512&times;512 with batch size one.
+          </figcaption>
         </figure>
       </div>
     </div>
 
     <h3 class="title is-4">Ablation of the camera-aware ray encoding</h3>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <div class="content has-text-justified">
+          <p>
+            Without the encoding, intrinsics have no effect, and the point error stays at 5.05 in both settings.
+            With the encoding, intrinsics reduce the point error from 4.82 to 3.94.
+            We split the error of each point into a lateral part and a depth part.
+            The encoding reduces the lateral error from 2.28 to 1.27, but the depth error only from 3.22 to 2.95.
+          </p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <figure>
+          <a href="./static/images/fig/camera_error.jpg" target="_blank">
+            <img class="paper-figure" src="./static/images/fig/camera_error.jpg"
+                 alt="Lateral and depth error with and without the camera-aware ray encoding.">
+          </a>
+          <figcaption class="figure-caption">
+            (a) Input image with five marked pixels on one row.
+            (b) Top view of the points of this row. Each arrow points from the ground-truth point of a marked pixel
+            to its predicted point.
+            (c) The error of pixel 2, split into a lateral part and a depth part.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
     <div class="columns">
       <div class="column is-half">
         <figure>
