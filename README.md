@@ -3,12 +3,12 @@
   <p align="center">
     <a href="https://zephyr0609.github.io/">Zeyu Ren</a><sup>1</sup> &middot;
     <a href="https://scholar.google.com/citations?user=4bIblBYAAAAJ&hl=en">Jie Ni</a><sup>2*</sup> &middot;
-    <a href="https://github.com/Tomqqqqq/">Jiahao Wei</a><sup>3</sup> &middot;
-    <a href="https://ha0tang.github.io/">Hao Tang</a><sup>4</sup>
+    <a href="https://scholar.google.com/citations?hl=zh-CN&user=z3sAW3oAAAAJ">Rui Qian</a><sup>3*</sup> &middot;
+    <a href="https://github.com/Tomqqqqq/">Jiahao Wei</a><sup>3</sup>
     <br>
+    <a href="https://ha0tang.github.io/">Hao Tang</a><sup>4</sup> &middot;
     <a href="https://openreview.net/profile?id=~Yongtai_Liu2">Yongtai Liu</a><sup>5</sup> &middot;
-    <a href="https://steve-zeyu-zhang.github.io/">Zeyu Zhang</a><sup>4&dagger;</sup> &middot;
-    <a href="https://scholar.google.com/citations?hl=zh-CN&user=z3sAW3oAAAAJ">Rui Qian</a><sup>3*</sup>
+    <a href="https://steve-zeyu-zhang.github.io/">Zeyu Zhang</a><sup>4&dagger;</sup>
   </p>
   <p align="center">
     <sup>1</sup>The University of Melbourne &nbsp; <sup>2</sup>Southeast University &nbsp; <sup>3</sup>Fudan University &nbsp; <sup>4</sup>Peking University &nbsp; <sup>5</sup>Hanyang University
@@ -152,7 +152,7 @@ If you find this work useful, please consider citing:
 ```bibtex
 @article{ren2026pine,
   title={PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model},
-  author={Ren, Zeyu and Ni, Jie and Wei, Jiahao and Tang, Hao and Liu, Yongtai and Zhang, Zeyu and Qian, Rui},
+  author={Ren, Zeyu and Ni, Jie and Qian, Rui and Wei, Jiahao and Tang, Hao and Liu, Yongtai and Zhang, Zeyu},
   year={2026}
 }
 ```
