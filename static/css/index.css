@@ -428,3 +428,18 @@ a:hover {
     font-size: 2rem !important;
   }
 }
+
+/* promo video, aligned with the abstract card (2026-11-21) */
+.promo-video {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  line-height: 0;
+}
+
+.promo-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
