@@ -20,15 +20,15 @@ datasets with one sampling step, with and without intrinsics.
 
 | Model  | DINOv3 Encoder | Rel<sup>p</sup> with K | Rel<sup>p</sup> without K | Download |
 | ------ | :------------: | :--------------------: | :-----------------------: | :------: |
-| PINE-B |    ViT-B/16    |          4.69          |           5.62            | [pine-b-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-b-512.pth) (0.6 GB) |
-| PINE-L |    ViT-L/16    |          3.76          |           4.70            | [pine-l-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-l-512.pth) (2.0 GB) |
-| PINE-H |   ViT-H+/16    |          3.33          |           4.16            | [pine-h-512.pth](https://huggingface.co/zeyuren2002/PINE/resolve/main/pine-h-512.pth) (4.0 GB) |
+| PINE-B |    ViT-B/16    |          4.69          |           5.62            | [pine-b-512.pth](https://huggingface.co/AIGeeksGroup/PINE/resolve/main/pine-b-512.pth) (0.6 GB) |
+| PINE-L |    ViT-L/16    |          3.76          |           4.70            | [pine-l-512.pth](https://huggingface.co/AIGeeksGroup/PINE/resolve/main/pine-l-512.pth) (2.0 GB) |
+| PINE-H |   ViT-H+/16    |          3.33          |           4.16            | [pine-h-512.pth](https://huggingface.co/AIGeeksGroup/PINE/resolve/main/pine-h-512.pth) (4.0 GB) |
 
-All weights are hosted on [Hugging Face](https://huggingface.co/zeyuren2002/PINE):
+All weights are hosted on [Hugging Face](https://huggingface.co/AIGeeksGroup/PINE):
 
 ```bash
 pip install -U "huggingface_hub[cli]"
-hf download zeyuren2002/PINE pine-l-512.pth --local-dir pretrained
+hf download AIGeeksGroup/PINE pine-l-512.pth --local-dir pretrained
 ```
 
 A released file holds the EMA weights of the last training epoch and the arguments that define the model. The

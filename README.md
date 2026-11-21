@@ -17,7 +17,7 @@
     <sup>*</sup>Corresponding authors &nbsp; <sup>&dagger;</sup>Project lead
   </p>
   <h3 align="center">
-    <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/zeyuren2002/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
+    <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/AIGeeksGroup/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
   </h3>
 </p>
 
@@ -66,12 +66,12 @@ see [MODELS.md](MODELS.md) for the file list.
 ## Model Zoo
 
 Pre-trained models are available in the [Model Zoo](MODELS.md): PINE-B / L / H at `512×512`. All weights are hosted on
-[Hugging Face](https://huggingface.co/zeyuren2002/PINE).
+[Hugging Face](https://huggingface.co/AIGeeksGroup/PINE).
 
 Download the weights and place (or symlink) them in the `pretrained` directory:
 
 ```bash
-hf download zeyuren2002/PINE pine-l-512.pth --local-dir pretrained
+hf download AIGeeksGroup/PINE pine-l-512.pth --local-dir pretrained
 ```
 
 The checkpoints ship without the frozen DINOv3 encoder, which is downloaded separately (see
