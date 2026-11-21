@@ -2,8 +2,8 @@
   <h1 align="center">PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model</h1>
   <p align="center">
     <a href="https://zephyr0609.github.io/">Zeyu Ren</a><sup>1</sup> &middot;
-    <a href="https://scholar.google.com/citations?user=4bIblBYAAAAJ&hl=en">Jie Ni</a><sup>2*</sup> &middot;
-    <a href="https://scholar.google.com/citations?hl=zh-CN&user=z3sAW3oAAAAJ">Rui Qian</a><sup>3*</sup> &middot;
+    <a href="https://scholar.google.com/citations?user=4bIblBYAAAAJ&hl=en">Jie Ni</a><sup>2&#9993;&#xFE0E;</sup> &middot;
+    <a href="https://scholar.google.com/citations?hl=zh-CN&user=z3sAW3oAAAAJ">Rui Qian</a><sup>3&#9993;&#xFE0E;</sup> &middot;
     <a href="https://github.com/Tomqqqqq/">Jiahao Wei</a><sup>3</sup>
     <br>
     <a href="https://ha0tang.github.io/">Hao Tang</a><sup>4</sup> &middot;
@@ -14,7 +14,7 @@
     <sup>1</sup>The University of Melbourne &nbsp; <sup>2</sup>Southeast University &nbsp; <sup>3</sup>Fudan University &nbsp; <sup>4</sup>Peking University &nbsp; <sup>5</sup>Hanyang University
   </p>
   <p align="center">
-    <sup>*</sup>Corresponding authors &nbsp; <sup>&dagger;</sup>Project lead
+    <sup>&#9993;&#xFE0E;</sup>Corresponding authors &nbsp; <sup>&dagger;</sup>Project lead
   </p>
   <h3 align="center">
     <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/AIGeeksGroup/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
