@@ -17,7 +17,7 @@
     <sup>&#9993;&#xFE0E;</sup>Corresponding authors &nbsp; <sup>&dagger;</sup>Project lead
   </p>
   <h3 align="center">
-    <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/AIGeeksGroup/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
+    <a href="https://arxiv.org/abs/2611.29389">Paper</a> | <a href="https://aigeeksgroup.github.io/PINE/">Website</a> | <a href="https://huggingface.co/AIGeeksGroup/PINE">Weights</a> | <a href="MODELS.md">Models</a> | <a href="DATASETS.md">Datasets</a>
   </h3>
 </p>
 
@@ -153,7 +153,9 @@ If you find this work useful, please consider citing:
 @article{ren2026pine,
   title={PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model},
   author={Ren, Zeyu and Ni, Jie and Qian, Rui and Wei, Jiahao and Tang, Hao and Liu, Yongtai and Zhang, Zeyu},
-  year={2026}
+  journal={arXiv preprint arXiv:2611.29389},
+  year={2026},
+  url={https://arxiv.org/abs/2611.29389}
 }
 ```
 
