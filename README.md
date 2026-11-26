@@ -56,12 +56,7 @@ git clone https://github.com/facebookresearch/dinov3.git third_party/dinov3
 
 All commands are run from the repository root, and the launch scripts in [scripts/](scripts).
 
-The DINOv3 weights are gated and cannot be redistributed, so they are not part of the released
-checkpoints. Request access on the
-[official DINOv3 repository](https://github.com/facebookresearch/dinov3) and place the weights
-under `pretrained/dinov3/` with their exact upstream filenames, or point `DINOV3_WEIGHTS_DIR` at
-the directory holding them. They are needed for evaluation and the demo as well as for training;
-see [MODELS.md](MODELS.md) for the file list.
+Access to the pretrained DINOv3 weights requires approval from the [DINOv3 team](https://github.com/facebookresearch/dinov3).
 
 ## Model Zoo
 
@@ -132,8 +127,6 @@ bash scripts/train_l_512.sh
 ```
 
 The training scripts in [scripts/](scripts) contain the exact commands and hyperparameters used for the experiments in our paper. Please refer to them for detailed configurations. Before training, you need to download the DINOv3 weights (see [Installation](#installation)) and the PointDiT weights (see [MODELS.md](MODELS.md)), and prepare the datasets per [DATASETS.md](DATASETS.md).
-
-The ablations of the paper change one flag of this command on the 2-dataset mixture (`dataloader/configs/two_datasets_512.yaml`): `--camera_positional_encoding` and `--camera_pe_sites` (camera-aware ray encoding), `--stream_attention` (stream mask) and `--dino_grounding` (grounding attention).
 
 ## License
 
