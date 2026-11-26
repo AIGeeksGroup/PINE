@@ -150,11 +150,13 @@ The released PINE model weights are for non-commercial use only, under the
 If you find this work useful, please consider citing:
 
 ```bibtex
-@article{ren2026pine,
+@misc{ren2026pinepointinstancenormal,
   title={PINE: Point, Instance and Normal Estimation in One-Step Diffusion Model},
-  author={Ren, Zeyu and Ni, Jie and Qian, Rui and Wei, Jiahao and Tang, Hao and Liu, Yongtai and Zhang, Zeyu},
-  journal={arXiv preprint arXiv:2611.29389},
+  author={Zeyu Ren and Jie Ni and Rui Qian and Jiahao Wei and Hao Tang and Yongtai Liu and Zeyu Zhang},
   year={2026},
+  eprint={2611.29389},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
   url={https://arxiv.org/abs/2611.29389}
 }
 ```
