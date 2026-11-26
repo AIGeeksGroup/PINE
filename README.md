@@ -54,7 +54,7 @@ pip install -r requirements.txt
 git clone https://github.com/facebookresearch/dinov3.git third_party/dinov3
 ```
 
-All commands are run from the repository root, and the launch scripts in [scripts/](scripts).
+Run all commands from the repository root.
 
 Access to the pretrained DINOv3 weights requires approval from the [DINOv3 team](https://github.com/facebookresearch/dinov3).
 
@@ -68,9 +68,6 @@ Download the weights and place (or symlink) them in the `pretrained` directory:
 ```bash
 hf download AIGeeksGroup/PINE pine-l-512.pth --local-dir pretrained
 ```
-
-The checkpoints ship without the frozen DINOv3 encoder, which is downloaded separately (see
-[Installation](#installation)).
 
 ## Demo
 
@@ -110,7 +107,7 @@ ln -s YOUR_DATASET_PATH datasets
 
 ## Evaluation
 
-Evaluation scripts are provided in [scripts/](scripts) for reproducing the results in our paper:
+To reproduce the paper's evaluation for PINE-L, run:
 
 ```bash
 bash scripts/eval_l_512.sh
@@ -120,13 +117,11 @@ Swap `l` for `b` or `h`. The script runs the protocols of the paper: point map a
 
 ## Training
 
-PINE is trained at `512×512` on the 6-dataset mixture, from the released PointDiT weights of the same size:
+To train PINE-L at `512×512`, set up [DINOv3](#installation), download the [PointDiT initialization weights](MODELS.md#pointdit-initialisation), and follow [Dataset Preparation](#dataset-preparation) to prepare the six training datasets:
 
 ```bash
 bash scripts/train_l_512.sh
 ```
-
-The training scripts in [scripts/](scripts) contain the exact commands and hyperparameters used for the experiments in our paper. Please refer to them for detailed configurations. Before training, you need to download the DINOv3 weights (see [Installation](#installation)) and the PointDiT weights (see [MODELS.md](MODELS.md)), and prepare the datasets per [DATASETS.md](DATASETS.md).
 
 ## License
 
